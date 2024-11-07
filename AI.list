@@ -4,8 +4,8 @@
 # DOMAIN-KEYWORD,anthropic
 # DOMAIN-KEYWORD,Claude
 DOMAIN-KEYWORD,poe.com
-# 域名后缀匹配
 
+# 域名后缀匹配
 DOMAIN-SUFFIX,poe.com
 DOMAIN,copilot.microsoft.com
 DOMAIN-SUFFIX,bing.com

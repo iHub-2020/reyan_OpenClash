@@ -19,6 +19,8 @@ DOMAIN-SUFFIX,doh.opendns.com
 DOMAIN-SUFFIX,dns.quad9.net
 DOMAIN-SUFFIX,hk-hkg.doh.sb
 DOMAIN-SUFFIX,6vdyy.com
+
+# GAMES
 DOMAIN-SUFFIX,api.minecraftservices.com
 DOMAIN-SUFFIX,minecraftservices.com
 DOMAIN-SUFFIX,user.auth.xboxlive.com

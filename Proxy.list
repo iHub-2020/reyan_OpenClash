@@ -31,6 +31,7 @@ DOMAIN-SUFFIX,search.linggle.com
 DOMAIN-SUFFIX,reyanmatic.com
 DOMAIN-SUFFIX,freemdict.com
 DOMAIN-SUFFIX,lscr.io
+DOMAIN-SUFFIX,deb.debian.org
 
 # GAMES
 DOMAIN-SUFFIX,api.minecraftservices.com

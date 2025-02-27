@@ -8,6 +8,7 @@ IP-CIDR,104.236.69.0/24,no-resolve
 # DOMAIN-KEYWORD,reyanmatic.com
 # DOMAIN-KEYWORD,xui.reyanmatic.com
 # DOMAIN-KEYWORD,hui.reyanmatic.com
+# DOMAIN-KEYWORD,sra.mccain.com
 
 # 国外DNS
 DOMAIN-SUFFIX,dns.google

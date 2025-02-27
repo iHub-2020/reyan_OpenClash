@@ -5,6 +5,9 @@ IP-CIDR,104.236.69.0/24,no-resolve
 
 # 域名关键字匹配
 # DOMAIN-KEYWORD,zerotier.com
+# DOMAIN-KEYWORD,reyanmatic.com
+# DOMAIN-KEYWORD,xui.reyanmatic.com
+# DOMAIN-KEYWORD,hui.reyanmatic.com
 
 # 国外DNS
 DOMAIN-SUFFIX,dns.google

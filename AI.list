@@ -1,12 +1,7 @@
-# 内容：OpenAi Bard anthropic
 # 域名关键字匹配
-# DOMAIN-KEYWORD,openai
-# DOMAIN-KEYWORD,anthropic
-# DOMAIN-KEYWORD,Claude
-DOMAIN-KEYWORD,poe.com
+# （删除重复的关键字匹配规则）
 
 # 域名后缀匹配
-DOMAIN,copilot.microsoft.com
 DOMAIN-SUFFIX,poe.com
 DOMAIN-SUFFIX,bing.com
 DOMAIN-SUFFIX,meta.ai
@@ -23,12 +18,8 @@ DOMAIN-SUFFIX,intercomcdn.com
 DOMAIN-SUFFIX,oaistatic.com
 DOMAIN-SUFFIX,oaiusercontent.com
 DOMAIN-SUFFIX,openai.com
-DOMAIN-SUFFIX,openaiapi-site.azureedge.net
 DOMAIN-SUFFIX,sentry.io
-DOMAIN-SUFFIX,stripe.com
 DOMAIN-SUFFIX,bard.google.com
-DOMAIN-SUFFIX,gemini.google.com
-DOMAIN-SUFFIX,makersuite.google.com
 DOMAIN-SUFFIX,anthropic.com
 DOMAIN-SUFFIX,claude.ai
 DOMAIN-SUFFIX,circumlunar.space

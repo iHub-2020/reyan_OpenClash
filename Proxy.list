@@ -1,6 +1,5 @@
 # 国外DNS
 DOMAIN-SUFFIX,dns.google
-DOMAIN-SUFFIX,cloudflare-dns.com
 DOMAIN-SUFFIX,dns.quad9.net
 DOMAIN-SUFFIX,doh.opendns.com
 

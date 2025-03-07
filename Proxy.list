@@ -1,75 +1,33 @@
+# 国外DNS
+DOMAIN-SUFFIX,dns.google
+DOMAIN-SUFFIX,cloudflare-dns.com
+DOMAIN-SUFFIX,dns.quad9.net
+DOMAIN-SUFFIX,doh.opendns.com
+
+# 自定义规则
+DOMAIN-SUFFIX,ispip.clang.cn
+DOMAIN-SUFFIX,support.microsoft.com
+DOMAIN-SUFFIX,racknerd.com
+DOMAIN-SUFFIX,p3terx.com
+DOMAIN-SUFFIX,freemdict.com
+
+# GAMES
+DOMAIN-SUFFIX,api.minecraftservices.com
+DOMAIN-SUFFIX,user.auth.xboxlive.com
+
+# 其他
+DOMAIN-SUFFIX,zerotier.com
+DOMAIN-SUFFIX,1lib.sk
+DOMAIN-SUFFIX,followme.com
+DOMAIN-SUFFIX,plex.tv
+DOMAIN-SUFFIX,ipinfo.io
+DOMAIN-SUFFIX,asiassn.com
+DOMAIN-SUFFIX,ipleak.net
+
 # IP段匹配
 IP-CIDR,142.171.133.131/32,no-resolve
 IP-CIDR,103.115.43.2/32,no-resolve
 IP-CIDR,104.236.69.0/24,no-resolve
-
-# 域名关键字匹配
-# DOMAIN-KEYWORD,zerotier.com
-
-# 国外DNS
-DOMAIN-SUFFIX,dns.google
-DOMAIN-SUFFIX,1dot1dot1dot1.cloudflare-dns.com
-DOMAIN-SUFFIX,dot.sb
-DOMAIN-SUFFIX,dns.umbrella.com
-DOMAIN-SUFFIX,dns.quad9.net
-DOMAIN-SUFFIX,dns.google
-DOMAIN-SUFFIX,cloudflare-dns.com
-DOMAIN-SUFFIX,doh.dns.sb
-DOMAIN-SUFFIX,doh.opendns.com
-DOMAIN-SUFFIX,dns.quad9.net
-DOMAIN-SUFFIX,hk-hkg.doh.sb
-
-# 自定义
-DOMAIN-SUFFIX,6vdyy.com
-DOMAIN-SUFFIX,ispip.clang.cn
-DOMAIN-SUFFIX,support.microsoft.com
-DOMAIN-SUFFIX,microsoft.com
-DOMAIN-SUFFIX,hongxingdl.com
-DOMAIN-SUFFIX,racknerd.com
-DOMAIN-SUFFIX,p3terx.com
-DOMAIN-SUFFIX,search.linggle.com
-DOMAIN-SUFFIX,reyanmatic.com
-DOMAIN-SUFFIX,freemdict.com
-DOMAIN-SUFFIX,lscr.io
-DOMAIN-SUFFIX,deb.debian.org
-
-# GAMES
-DOMAIN-SUFFIX,api.minecraftservices.com
-DOMAIN-SUFFIX,minecraftservices.com
-DOMAIN-SUFFIX,user.auth.xboxlive.com
-
-DOMAIN-SUFFIX,zerotier.com
-DOMAIN-SUFFIX,1lib.sk
-DOMAIN-SUFFIX,6bcloud.top
-DOMAIN-SUFFIX,viptwo.top
-DOMAIN-SUFFIX,followme.com
-DOMAIN-SUFFIX,followme.ceo
-DOMAIN-SUFFIX,whatsmydns.me
-DOMAIN-SUFFIX,hostloc.net
-DOMAIN-SUFFIX,tmgm.com
-DOMAIN-SUFFIX,plexapp.com
-DOMAIN-SUFFIX,plexmediaserver.com
-DOMAIN-SUFFIX,plex.tv
-DOMAIN-SUFFIX,ip111.cn
-DOMAIN-SUFFIX,ipinfo.io
-DOMAIN-SUFFIX,ip-score.com
-DOMAIN-SUFFIX,dnsleaktest.com
-DOMAIN-SUFFIX,asiassn.com
-DOMAIN-SUFFIX,ipleak.net
-DOMAIN-SUFFIX,browserleaks.com
-DOMAIN-SUFFIX,polivera.ai
-DOMAIN-SUFFIX,asiassn.com
-DOMAIN-SUFFIX,mmcks.top
-DOMAIN-SUFFIX,needay.xyz
-DOMAIN-SUFFIX,mzzxuh.com
-DOMAIN-SUFFIX,lianjiasub.work
-DOMAIN-SUFFIX,muniucloud.pro
-DOMAIN-SUFFIX,kuajing.uk
-DOMAIN-SUFFIX,metacubex.one
-DOMAIN-SUFFIX,xiaoxintv.cc
-DOMAIN-SUFFIX,69yun.top
-DOMAIN-SUFFIX,nivodi.com
-
 IP-CIDR,8.8.8.8/32,no-resolve
 IP-CIDR,8.8.4.4/32,no-resolve
 IP-CIDR,1.1.1.1/32,no-resolve

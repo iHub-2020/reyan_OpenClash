@@ -1,2 +1,8 @@
 # IPTV DNS
 DOMAIN-SUFFIX,epg.112114.xyz
+
+# IPTV 精确匹配（台湾影视流）
+IP-CIDR,50.7.234.10/32,no-resolve
+
+# /24 代表匹配 50.7.234.0 到 50.7.234.255，共256个IP
+# IP-CIDR,50.7.234.10/24,no-resolve

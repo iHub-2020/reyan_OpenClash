@@ -1,5 +1,6 @@
 # IPTV DNS
 DOMAIN-SUFFIX,epg.112114.xyz
+DOMAIN-SUFFIX,live.fanmingming.com
 
 # IPTV 精确匹配
 IP-CIDR,50.7.234.10/32,no-resolve

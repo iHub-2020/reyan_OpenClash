@@ -26,6 +26,6 @@ DOMAIN-SUFFIX,live4play.uk
 IP-CIDR,50.7.234.10/32,no-resolve
 
 IP-CIDR,198.16.100.186/32,no-resolve
-IP-CIDR,58.19.180.108,no-resolve
+IP-CIDR,58.19.180.108/32,no-resolve
 IP-CIDR,175.22.226.131,no-resolve
 IP-CIDR,118.249.196.244,no-resolve

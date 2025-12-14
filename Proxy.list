@@ -1,33 +1,100 @@
-# 国外DNS
+# ===== DNS 服务 =====
+# Google DNS
 DOMAIN-SUFFIX,dns.google
+# Cloudflare DNS
+DOMAIN-SUFFIX,1dot1dot1dot1.cloudflare-dns.com
+DOMAIN-SUFFIX,cloudflare-dns.com
+# Quad9 DNS
 DOMAIN-SUFFIX,dns.quad9.net
+# OpenDNS
 DOMAIN-SUFFIX,doh.opendns.com
+DOMAIN-SUFFIX,dns.umbrella.com
+# DNS.SB
+DOMAIN-SUFFIX,dot.sb
+DOMAIN-SUFFIX,doh.dns.sb
+DOMAIN-SUFFIX,hk-hkg.doh.sb
 
-# 自定义规则
+# ===== 自定义域名 =====
 DOMAIN-SUFFIX,ispip.clang.cn
 DOMAIN-SUFFIX,support.microsoft.com
+DOMAIN-SUFFIX,microsoft.com
 DOMAIN-SUFFIX,racknerd.com
 DOMAIN-SUFFIX,p3terx.com
 DOMAIN-SUFFIX,freemdict.com
 DOMAIN-SUFFIX,extraott.com
 DOMAIN-SUFFIX,reyanmatic.com
+DOMAIN,racknerd1.sui.reyanmatic.com
+DOMAIN,racknerd2.sui.reyanmatic.com
 
-# GAMES
+# ===== 游戏服务 =====
+DOMAIN-SUFFIX,minecraftservices.com
 DOMAIN-SUFFIX,api.minecraftservices.com
 DOMAIN-SUFFIX,user.auth.xboxlive.com
 
-# 其他
+# ===== 工具与服务 =====
 DOMAIN-SUFFIX,zerotier.com
 DOMAIN-SUFFIX,1lib.sk
 DOMAIN-SUFFIX,followme.com
+DOMAIN-SUFFIX,followme.ceo
 DOMAIN-SUFFIX,ipinfo.io
 DOMAIN-SUFFIX,asiassn.com
 DOMAIN-SUFFIX,ipleak.net
+DOMAIN-SUFFIX,linkedin.com
+DOMAIN-SUFFIX,youglish.com
+DOMAIN-SUFFIX,query1.finance.yahoo.com
+DOMAIN-SUFFIX,developer.tradier.com
+DOMAIN-SUFFIX,curl.se
+DOMAIN-SUFFIX,search.linggle.com
+DOMAIN-SUFFIX,lscr.io
+DOMAIN-SUFFIX,deb.debian.org
+DOMAIN-SUFFIX,whatsmydns.me
+DOMAIN-SUFFIX,hostloc.net
+DOMAIN-SUFFIX,tmgm.com
+DOMAIN-SUFFIX,ip111.cn
+DOMAIN-SUFFIX,ip-score.com
+DOMAIN-SUFFIX,dnsleaktest.com
+DOMAIN-SUFFIX,browserleaks.com
+DOMAIN-SUFFIX,pool.ntp.org
 
-# IP段匹配
+# ===== 流媒体与影视 =====
+DOMAIN-SUFFIX,hongxingdl.com
+DOMAIN-SUFFIX,hongxingdl.love
+DOMAIN-SUFFIX,hongxingyun10.vip
+DOMAIN-SUFFIX,6vdyy.com
+DOMAIN-SUFFIX,ulozto.net
+DOMAIN-SUFFIX,meijutt.tv
+DOMAIN-SUFFIX,xiaoxintv.cc
+DOMAIN-SUFFIX,plexapp.com
+DOMAIN-SUFFIX,plexmediaserver.com
+DOMAIN-SUFFIX,plex.tv
+
+# ===== 机场与代理服务 =====
+DOMAIN-SUFFIX,6bcloud.top
+DOMAIN-SUFFIX,viptwo.top
+DOMAIN-SUFFIX,mmcks.top
+DOMAIN-SUFFIX,needay.xyz
+DOMAIN-SUFFIX,mzzxuh.com
+DOMAIN-SUFFIX,lianjiasub.work
+DOMAIN-SUFFIX,muniucloud.pro
+DOMAIN-SUFFIX,kuajing.uk
+DOMAIN-SUFFIX,metacubex.one
+DOMAIN-SUFFIX,69yun.top
+DOMAIN-SUFFIX,nivodi.com
+
+# ===== 其他 =====
+DOMAIN-SUFFIX,mhj-wiki.de
+DOMAIN-SUFFIX,polivera.ai
+
+# ===== 地理位置规则 =====
+GEOSITE,geolocation-!cn
+
+# ===== IP 段规则 =====
+# VPS IP
 IP-CIDR,142.171.133.131/32,no-resolve
 IP-CIDR,103.115.43.2/32,no-resolve
 IP-CIDR,104.236.69.0/24,no-resolve
+
+# 公共 DNS IP (IPv4)
 IP-CIDR,8.8.8.8/32,no-resolve
 IP-CIDR,8.8.4.4/32,no-resolve
 IP-CIDR,1.1.1.1/32,no-resolve
@@ -35,3 +102,8 @@ IP-CIDR,1.0.0.1/32,no-resolve
 IP-CIDR,185.222.222.222/32,no-resolve
 IP-CIDR,208.67.222.222/32,no-resolve
 IP-CIDR,208.67.220.220/32,no-resolve
+
+# 公共 DNS IP (IPv6)
+IP-CIDR6,2001:67c:4e8::/48,no-resolve
+IP-CIDR6,2001:b28:f23c::/48,no-resolve
+IP-CIDR6,2606:4700:4700::1111/128,no-resolve

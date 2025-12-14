@@ -2,5 +2,30 @@
 DOMAIN-SUFFIX,epg.112114.xyz
 DOMAIN-SUFFIX,live.fanmingming.com
 
+DOMAIN-SUFFIX,sh.lnott.top
+DOMAIN-SUFFIX,epg.pw
+DOMAIN-SUFFIX,stream1.freetv.fun
+DOMAIN-SUFFIX,38b891c9.rossteleccom.net
+DOMAIN-SUFFIX,zqjy.info
+
+# NHK
+DOMAIN-SUFFIX,cdn.nhkworld.jp
+DOMAIN-SUFFIX,cdn.skygo.mn
+DOMAIN-SUFFIX,cdn4.skygo.mn
+DOMAIN-SUFFIX,cdn.nhkworld.jp
+DOMAIN-SUFFIX,nhk.lls.pbs.org
+DOMAIN-SUFFIX,viamotionhsi.netplus.ch
+##############
+DOMAIN-SUFFIX,fl41.moveonjoy.com
+DOMAIN-SUFFIX,tvpass.org
+DOMAIN-SUFFIX,domain:netplus.ch
+DOMAIN-SUFFIX,cdn8.163189.xyz
+DOMAIN-SUFFIX,live4play.uk
+
 # IPTV 精确匹配
 IP-CIDR,50.7.234.10/32,no-resolve
+
+IP-CIDR,198.16.100.186/32,no-resolve
+IP-CIDR,58.19.180.108,no-resolve
+IP-CIDR,175.22.226.131,no-resolve
+IP-CIDR,118.249.196.244,no-resolve

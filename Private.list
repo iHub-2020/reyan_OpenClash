@@ -1,0 +1,27 @@
+# ========================
+# 方案 A：直接写在 rules 里（推荐）
+# ========================
+rules:
+  # 自定义规则（放最前面）
+  - DOMAIN-SUFFIX,company.local,DIRECT
+  - DOMAIN-SUFFIX,home.lan,DIRECT
+  - IP-CIDR,192.168.50.0/24,DIRECT,no-resolve
+  
+  # 公共规则集（保持不变）
+  - RULE-SET,Telegram / Domain,Telegram
+  - RULE-SET,China / Domain,国内
+  - MATCH,其他
+
+# ========================
+# 方案 B：创建本地规则集文件
+# ========================
+rule-providers:
+  My-Private:  # 您的自定义规则
+    type: file
+    behavior: classical
+    path: ./my-private-rules.yaml  # 本地文件
+    
+rules:
+  - RULE-SET,My-Private,DIRECT  # 优先级最高
+  - RULE-SET,Telegram / Domain,Telegram
+  ...

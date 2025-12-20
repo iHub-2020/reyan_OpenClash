@@ -89,11 +89,6 @@ DOMAIN-SUFFIX,polivera.ai
 GEOSITE,geolocation-!cn
 
 # ===== IP 段规则 =====
-# VPS IP
-IP-CIDR,142.171.133.131/32,no-resolve
-IP-CIDR,103.115.43.2/32,no-resolve
-IP-CIDR,104.236.69.0/24,no-resolve
-
 # 公共 DNS IP (IPv4)
 IP-CIDR,8.8.8.8/32,no-resolve
 IP-CIDR,8.8.4.4/32,no-resolve

@@ -105,6 +105,7 @@ DOMAIN-SUFFIX,heypi.com
 # 注意：如需国内直连请移除此条目
 # DOMAIN-SUFFIX,moonshot.cn
 # DOMAIN-SUFFIX,kimi.moonshot.cn
+DOMAIN-SUFFIX,kimi.com
 
 # === OpenAI 相关基础设施 ===
 # 注意：以下为 OpenAI 专属使用，已从通用规则中分离

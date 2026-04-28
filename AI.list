@@ -1,9 +1,11 @@
 # ============================================================
-# OpenClash AI 规则列表 - 优化版
-# 更新说明：修正错误条目，补充主流 AI 服务，新增 NVIDIA API
+# OpenClash AI 规则列表 - 优化版 v2
+# 修复内容：
+#   - 移除重复条目：character.ai（第二次出现）
+#   - 移除过宽条目：bing.com（会代理所有 Bing 搜索流量）
+#   - 移除僵尸/过宽条目：accounts.google.com（Google 全局 OAuth，
+#     影响所有 Google 服务登录，已由 Google 规则集覆盖）
 # ============================================================
-
-# 域名后缀匹配
 
 # === OpenAI / ChatGPT ===
 DOMAIN-SUFFIX,openai.com
@@ -25,11 +27,10 @@ DOMAIN-SUFFIX,makersuite.google.com
 DOMAIN-SUFFIX,aistudio.google.com
 
 # === Google Antigravity IDE ===
-DOMAIN-SUFFIX,sandbox.googleapis.com           # 覆盖 Antigravity 主/备端点
-DOMAIN-SUFFIX,cloudcode-pa.googleapis.com      # 回退端点
-DOMAIN-SUFFIX,cloudaicompanion.googleapis.com  # Cloud AI Companion API
-DOMAIN-SUFFIX,accounts.google.com              # Google OAuth 认证
-DOMAIN-SUFFIX,open-vsx.org                     # Antigravity 插件市场
+DOMAIN-SUFFIX,sandbox.googleapis.com
+DOMAIN-SUFFIX,cloudcode-pa.googleapis.com
+DOMAIN-SUFFIX,cloudaicompanion.googleapis.com
+DOMAIN-SUFFIX,open-vsx.org
 
 # === Meta AI ===
 DOMAIN-SUFFIX,meta.ai
@@ -43,9 +44,8 @@ DOMAIN-SUFFIX,build.nvidia.com
 DOMAIN-SUFFIX,catalog.ngc.nvidia.com
 
 # === Microsoft Copilot / Bing AI ===
-DOMAIN-SUFFIX,bing.com
-DOMAIN-SUFFIX,copilot.microsoft.com
 DOMAIN-SUFFIX,sydney.bing.com
+DOMAIN-SUFFIX,copilot.microsoft.com
 
 # === Perplexity AI ===
 DOMAIN-SUFFIX,perplexity.ai
@@ -99,7 +99,6 @@ DOMAIN-SUFFIX,runwayml.com
 
 # === Character.AI ===
 DOMAIN-SUFFIX,character.ai
-DOMAIN-SUFFIX,character.ai
 
 # === You.com ===
 DOMAIN-SUFFIX,you.com
@@ -115,18 +114,8 @@ DOMAIN-SUFFIX,heypi.com
 DOMAIN-SUFFIX,kimi.com
 
 # === OpenAI 相关基础设施 ===
-# 注意：以下为 OpenAI 专属使用，已从通用规则中分离
 DOMAIN-SUFFIX,client-api.arkoselabs.com
 DOMAIN-SUFFIX,events.statsigapi.net
 DOMAIN-SUFFIX,featuregates.org
 DOMAIN-SUFFIX,intercom.io
 DOMAIN-SUFFIX,intercomcdn.com
-
-# ============================================================
-# 已移除的错误条目说明：
-# - auth0.com        → 通用 OAuth 服务，不应代理所有流量
-# - sentry.io        → 通用错误追踪服务，影响面过广
-# - identrust.com    → SSL 证书颁发机构，不应在此规则
-# - circumlunar.space / vulpes.one / mozz.us
-#   conman.org / bortzmeyer.org → DNS-over-HTTPS 解析器，与 AI 无关
-# ============================================================

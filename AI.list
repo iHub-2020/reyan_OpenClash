@@ -17,6 +17,7 @@ DOMAIN-SUFFIX,openai.azure.com
 
 # === Anthropic / Claude ===
 DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.com
 DOMAIN-SUFFIX,claude.ai
 
 # === Google Gemini / Bard ===

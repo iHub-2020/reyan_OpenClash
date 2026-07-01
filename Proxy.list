@@ -23,8 +23,8 @@ DOMAIN-SUFFIX,p3terx.com
 DOMAIN-SUFFIX,freemdict.com
 DOMAIN-SUFFIX,extraott.com
 DOMAIN-SUFFIX,reyanmatic.com
-DOMAIN,racknerd1.sui.reyanmatic.com
-DOMAIN,racknerd2.sui.reyanmatic.com
+DOMAIN-SUFFIX,immigration.govt.nz
+DOMAIN,onlineservices.immigration.govt.nz
 
 # ===== 游戏服务 =====
 DOMAIN-SUFFIX,minecraftservices.com

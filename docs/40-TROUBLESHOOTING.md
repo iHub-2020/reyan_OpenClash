@@ -240,7 +240,11 @@ deepseek 仍走自建日本1，GitHub、Google、LinkedIn、百度命中的规�
 mihomo 的 nameserver 列表里有 223.5.5.5，并发查询用最先回来的答案，于是时好时坏。
 10-06 逐个上游复查：**只有 223.5.5.5 有问题**，它对另外两个自有域名也返回了同一个可疑网段，
 表现为重启 OpenClash 后某些连接莫名超时、证书握手被断开（缓存住了错误答案，清 DNS 缓存后恢复）。
-⇒ 根治办法是把 223.5.5.5 从 nameserver 里去掉，而不是逐个域名加 Nameserver-Policy；fallback 组保留，作为兜底。**尚未改。**
+⇒ 已把 223.5.5.5 从 nameserver 里停用（10-06）。fallback 组保留，作为兜底。
+
+🔴 **只去掉它还不够**：之后复查，运营商经 PPPoE 下发的 IPv6 DNS 也会偶发返回劫持地址（同款：Let's Encrypt 短期证书，SAN 只写 IP）。
+它是 OpenClash「追加 WAN DNS」带进来的，不在手工 DNS 列表里，列表里看不到。
+判据：逐个上游、每个查多次（劫持是偶发的，只查一次会漏），对照境外 DoH 的答案；可疑 IP 用 `openssl s_client` 看证书。
 
 ---
 

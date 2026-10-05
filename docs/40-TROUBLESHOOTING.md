@@ -114,7 +114,7 @@ DeepSeek 国内版与国际版**共用同一域名** `chat.deepseek.com`，按�
 ### 现象
 
 - 打开 www.linkedin.com，浏览器落在 `https://www.linkedin.cn/incareer/home`，页面报 **HTTP ERROR 451**
-- 自定义规则已写 `DOMAIN-KEYWORD,linkedin.com,<美国节点>`，`Proxy.list` 与 `Global.list` 里也都有 linkedin.com，**换成哪个节点都不行**
+- 自定义规则已写 `DOMAIN-KEYWORD,linkedin.com,<美国节点>`，`Global.list` 里也有 linkedin.com（排查期间曾在 `Proxy.list` 里也加过），**换成哪个节点都不行**
 - V2rayN 全局模式（系统代理）下正常
 
 ### 根因：又是 GeoDNS，但这次 DNS 是在**客户端本地**被解析成国内的

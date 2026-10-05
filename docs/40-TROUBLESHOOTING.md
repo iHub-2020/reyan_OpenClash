@@ -157,7 +157,7 @@ V2rayN 全局之所以好：系统代理把**域名**交给代理端去解析，
 
 ---
 
-## 案例 3 · SEEK：直连阵发性被劫持，走机房节点又过不了 Cloudflare 挑战（2026-10-05）
+## 案例 3 · SEEK：直连阵发性被劫持，走机房节点又过不了 Cloudflare 挑战（2026-10-05，10-06 上线 fallback 组）
 
 ### 现象
 
@@ -182,21 +182,64 @@ V2rayN 全局之所以好：系统代理把**域名**交给代理端去解析，
 | 家宽直连 | 阵发劫持、偶发超时 | 住宅 IP，**十秒内自动通过**（2026-08-22 实测） |
 | 机房节点 | 干净 | 机房 IP，**要人手勾选**，自动化做不了 |
 
-### 处置方案（待定，未改）
+### 处置（2026-10-06 已上线，两台路由器都改了）
 
-用 fallback 组让两条路互为备份，健康检查打在 SEEK 自己的域名上：
+fallback 组让两条路互为备份，健康检查打在 SEEK 自己的域名上：
 
 ```yaml
-- name: SEEK
-  type: fallback
-  proxies: [DIRECT, <美国节点>]
-  url: https://nz.seek.com/cdn-cgi/trace
-  interval: 300
+- {name: SEEK, type: fallback, proxies: [DIRECT, 自建美国1-故转], url: "https://nz.seek.com/cdn-cgi/trace", interval: 120, timeout: 5000}
 ```
 
-规则 `seek.com` 与 `challenges.cloudflare.com` **都指向这个组**（同出口的约束由组来保证）。
-劫持时健康检查的 TLS 会失败，自动切到美国节点；劫持结束后切回直连，挑战恢复自动通过。
-⚠️ 上线前要先校准：劫持期间健康检查确实判失败（否则这个组永远停在 DIRECT）。
+自定义规则里 `seek.com` 与 `challenges.cloudflare.com` **都指向 `SEEK`**（同出口的约束由组来保证）。
+直连健康检查失败时切到美国节点，直连恢复后自动切回，挑战恢复自动通过。
+模板 `Clash-Reyan-New.ini` 里也加了同一个组，以后重新生成订阅配置时它还在。
+
+#### 🔴 组必须在基础配置里，不能只写在 overwrite 脚本里
+
+OpenClash 启动顺序是**先校验自定义规则、后跑 `openclash_custom_overwrite.sh`**。
+规则指向的组要是此时还不存在，规则会被直接跳过（日志只有一条 `Skiped The Custom Rule Because Group & Proxy Not Found`），
+SEEK 就悄悄落到兜底规则。⇒ 组写进模板和当前配置文件，规则仍放在自定义规则里。
+
+#### 规则顺序：`DOMAIN-KEYWORD,seek.com` 会匹配 `deepseek.com`
+
+seek 规则必须排在 deepseek 规则**后面**，否则 DeepSeek 会被拐进 SEEK 组（见案例 1）。
+
+### 校准与验证
+
+**判据校准**（mihomo 延迟接口，走 DIRECT）：
+
+| 目标 | 结果 | 说明 |
+|---|---|---|
+| `self-signed.badssl.com` | 失败 | 对应当时的自签名伪造证书 |
+| `wrong.host.badssl.com` | 失败 | 对应只写了别处 IP 的短期证书 |
+| SEEK trace 加 `expected=204` / `500` | **照样通过** | 状态码限制不起作用 |
+
+⇒ 判据是「TLS 握手成功 + 连得上」，不看状态码。证书造假型劫持拦得住；证书合法、只改内容的劫持会漏判。
+
+**注入验证**：在路由器自身出站上加一条临时 DNAT，把发往 SEEK 两个 Cloudflare IP 443 端口的连接转到
+`self-signed.badssl.com`（与当时的劫持形态一致：IP 对，证书假）。先用 curl 确认注入生效（两个 IP 都报证书错误），
+然后**不手动触发检查**，等自动周期：两台都切到美国节点，出口 LAX，`challenges.cloudflare.com` 走同一组。
+
+**还原验证**：删掉注入，确认无残留，两台都在下一个周期自动切回 DIRECT。
+
+**不该挡的**：常驻 Chrome 新开标签页打开 nz.seek.com 搜索页，挑战**自动通过（未点击），14.3 秒**；
+职位页已有 clearance，0.5 秒打开；日志确认页面与 `challenges.cloudflare.com` 都走 `SEEK[DIRECT]`。
+deepseek 仍走自建日本1，GitHub、Google、LinkedIn、百度命中的规则与出口都没变。
+
+### 用的时候要知道
+
+- **lazy**：组闲着时不做健康检查（mihomo 默认 `lazy: true`，模板写不了这个参数）。闲了很久后来的第一批请求，
+  用的是上一次检查的结论，最长要等一个周期才纠正。实测一次 12 分钟没流量，有流量后 2 分钟内切换。
+- **一次超时就会切**：直连偶发超时（某个 Cloudflare IP 不通）也会让组切到美国节点至少一个周期，这段时间自动化会卡在人工勾选的挑战上。
+- **别手动测 DIRECT**：在面板或 API 上对 DIRECT 测这个 URL 的延迟，会改写组记录的存活状态，干扰判断。
+
+### 🔑 根因线索：「阵发劫持」很可能是阿里 DNS 给的
+
+验证时顺带查了各上游对 `nz.seek.com` 的 A 记录：运营商 DNS 都给 Cloudflare 真 IP，
+**`223.5.5.5` 给的是一串劫持地址，其中就有当时那张伪造证书 SAN 里写的 IP**。
+mihomo 的 nameserver 列表里有 223.5.5.5，并发查询用最先回来的答案，于是时好时坏。
+⇒ 可以再加一条 Nameserver-Policy 把 `+.seek.com` 指到干净的上游（同本文开头的解决模板），从根上去掉劫持；
+fallback 组保留，作为兜底。**尚未改。**
 
 ---
 

@@ -238,8 +238,9 @@ deepseek 仍走自建日本1，GitHub、Google、LinkedIn、百度命中的规�
 验证时顺带查了各上游对 `nz.seek.com` 的 A 记录：运营商 DNS 都给 Cloudflare 真 IP，
 **`223.5.5.5` 给的是一串劫持地址，其中就有当时那张伪造证书 SAN 里写的 IP**。
 mihomo 的 nameserver 列表里有 223.5.5.5，并发查询用最先回来的答案，于是时好时坏。
-⇒ 可以再加一条 Nameserver-Policy 把 `+.seek.com` 指到干净的上游（同本文开头的解决模板），从根上去掉劫持；
-fallback 组保留，作为兜底。**尚未改。**
+10-06 逐个上游复查：**只有 223.5.5.5 有问题**，它对另外两个自有域名也返回了同一个可疑网段，
+表现为重启 OpenClash 后某些连接莫名超时、证书握手被断开（缓存住了错误答案，清 DNS 缓存后恢复）。
+⇒ 根治办法是把 223.5.5.5 从 nameserver 里去掉，而不是逐个域名加 Nameserver-Policy；fallback 组保留，作为兜底。**尚未改。**
 
 ---
 

@@ -233,6 +233,14 @@ deepseek 仍走自建日本1，GitHub、Google、LinkedIn、百度命中的规�
 - **一次超时就会切**：直连偶发超时（某个 Cloudflare IP 不通）也会让组切到美国节点至少一个周期，这段时间自动化会卡在人工勾选的挑战上。
 - **别手动测 DIRECT**：在面板或 API 上对 DIRECT 测这个 URL 的延迟，会改写组记录的存活状态，干扰判断。
 
+### 2026-11-21 复查：怎样看 yacd 的「直连」延迟
+
+OpenClash 首页「百度搜索」测的是访问百度图标的耗时。yacd 的「直连」则是选中 `DIRECT` 的策略组。本次检查的 yacd 版本优先显示面板发起的测速结果；缺少这项结果时，会沿当前选项读取底层出口最近一次延迟。读数要结合当次探测的目标理解。
+
+这次首页百度显示 41 ms，yacd「直连」显示 202 ms。核对 Mihomo 的延迟历史，`DIRECT` 对 `nz.seek.com` 的最近记录正是 202 ms，而「直连」组对 `www.gstatic.com` 的最近记录是 39 ms。比较不同出口时，应在相近时间访问同一个与用途相关的目标。
+
+**保留现有设置。** 国内访问看首页百度；SEEK 组继续探测 `https://nz.seek.com/cdn-cgi/trace`，直连优先，探测失败时按配置顺序尝试备用出口。如果用百度判断 SEEK 是否可用，遇到上面记录的 SEEK 证书错误时，百度仍可能响应，故障切换就会漏掉这次异常。[Mihomo 策略组探测地址](https://wiki.metacubex.one/en/config/proxy-groups/#url) · [Fallback 选择顺序](https://wiki.metacubex.one/en/config/proxy-groups/fallback/)
+
 ### 🔑 根因线索：「阵发劫持」很可能是阿里 DNS 给的
 
 验证时顺带查了各上游对 `nz.seek.com` 的 A 记录：运营商 DNS 都给 Cloudflare 真 IP，
